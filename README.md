@@ -2,7 +2,9 @@
 
 This repository contains the following scripts:
 
-## hipache-ips.sh
+## Docker directory
+
+### hipache-ips.sh
 
 This script allows update of an hipache docker container with a redis backend.
 The name of the redis container must be "redis" (or change it in the redis_cli function).
@@ -11,7 +13,7 @@ The name of the redis container must be "redis" (or change it in the redis_cli f
 
 hipache-ips.sh script require an alias for each website for making frontend manipulations easier.
 
-### Usage
+#### Usage
 * Create a website record and affect it a frontend ip
 ```
 $ ./hipache-ips.sh -a 157.14.12.27 -u http://www.mysite.fr myalias
@@ -29,18 +31,20 @@ $ ./hipache-ips.sh -r 157.14.15.56 myalias
 $ ./hipache-ips.sh -l myalias
 ```
 
-## random-photos.sh
+## Photos directory
+
+### random-photos.sh
 
 This script allows to retrieve random photos from a library. It gives a priority to later photos.
 
-### Requirements
+#### Requirements
 
 These requirement are only needed if you use autorotate option (-a, see below).
 
 * jhead (http://www.sentex.net/~mwandel/jhead/)
 * jpegtran (http://jpegclub.org/jpegtran/)
 
-### Usage
+#### Usage
 
 * Retrieve 200 photos (default value) from a library
 ```
