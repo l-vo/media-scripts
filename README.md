@@ -70,3 +70,23 @@ $ ./random-photos.sh -r 90 /path/to/my/library /path/where/photos/will/be/copied
 ```
 $ ./random-photos.sh -a /path/to/my/library /path/where/photos/will/be/copied
 ```
+
+### extract-photos.sh
+
+This script allows to retrieve photos and videos from a library and organize them in folders date.
+
+#### Requirements
+
+* exiftool (http://www.sno.phy.queensu.ca/~phil/exiftool/index.html)
+
+#### Usage
+
+* Organize medias by date into a target folder
+```
+$ ./extract-photos.sh /path/to/my/library /path/where/photos/will/be/copied
+```
+
+* Organize all medias where date greater or equal than 12th May 2016
+```
+$ ./extract-photos.sh -d 2016-05-12 /path/to/my/library /path/where/photos/will/be/copied
+```
