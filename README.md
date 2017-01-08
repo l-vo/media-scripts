@@ -90,3 +90,20 @@ $ ./extract-photos.sh /path/to/my/library /path/where/photos/will/be/copied
 ```
 $ ./extract-photos.sh -d 2016-05-12 /path/to/my/library /path/where/photos/will/be/copied
 ```
+
+### remove-duplicates.sh
+
+This script allows to remove duplicate files. A duplicate file is localized by a specific pattern before extension. These patterns are " ([0-9])" and "_[0-9]".  
+A supposed duplicate is deleted only if an assumed original is found in the same directory with the same prefix and the same checksum.
+
+#### Usage
+
+* Remove duplicates, a confirmation is required for each file
+```
+$ ./remove-duplicates.sh /path/to/my/library
+```
+
+* Remove duplicates, files are removed without confirmation
+```
+$ ./remove-duplicates.sh -y /path/to/my/library
+```
