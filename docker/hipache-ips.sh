@@ -48,8 +48,13 @@ function redis_cli()
 
 function list_ip()
 {
-    ips=$(redis_cli "LRANGE frontend:$1 1 -1" 1 | tr -cs "[[:print:]]" "^M")
-    IFS="^M" read -r -a aips <<< "$ips"
+    if [[ "$(uname)" == "Darwin" ]] # Mac OSX
+    then
+      ips=$(redis_cli "LRANGE frontend:$1 1 -1" 1 | tr -cs "[[:print:]]" "^M")
+      IFS="^M" read -r -a aips <<< "$ips"
+    else
+      aips=$(redis_cli "LRANGE frontend:$1 1 -1" 1)
+    fi
 }
 
 declare -a aips
