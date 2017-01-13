@@ -153,7 +153,7 @@ then
   list_ip $url
   for wip in "${aips[@]}"
   do
-    if [[ "$wip" != "" ]]
+    if [[ $(echo "$wip" | tr -dc '[[:print:]]') != "" ]]
     then
       echo "$wip"
     fi
