@@ -126,10 +126,17 @@ fi
 if [[ "$action" == "a" ]] || [[ "$action" == "r" ]]
 then
   # Check ip validity
-  if ! [[ "$ip" =~ ^[0-9.]{7,15}$ ]]
+  if ! [[ "$ip" =~ ^(https?://)?([0-9.]{7,15})$ ]]
   then
     echo "Incorrect ip address $ip for option -$action"
     exit 1
+  fi
+
+  if [[ "${BASH_REMATCH[1]}" == "" ]]
+  then
+    cleanIP="http://${BASH_REMATCH[2]}"
+  else
+    cleanIP="$ip"
   fi
 
   if [[ "$action" == "a" ]]
@@ -137,23 +144,23 @@ then
     list_ip $url
     for wip in "${aips[@]}"
     do
-      if [[ "$wip" == "$ip" ]]
+      if [[ "$wip" == "$cleanIP" ]]
       then
         exit 0 # Ip already registered
       fi
     done
     # Add ip in database
-    redis_cli "RPUSH frontend:$url $ip" >/dev/null
+    redis_cli "RPUSH frontend:$url $cleanIP" >/dev/null
   else
     # Remove ip from database
-    redis_cli "LREM frontend:$url 0 $ip" >/dev/null
+    redis_cli "LREM frontend:$url 0 $cleanIP" >/dev/null
   fi
 elif [[ "$action" == "l" ]] # List ips for a site
 then
   list_ip $url
   for wip in "${aips[@]}"
   do
-    if [[ "$wip" != "" ]]
+    if [[ $(echo "$wip" | tr -dc '[[:print:]]') != "" ]]
     then
       echo "$wip"
     fi
