@@ -98,10 +98,10 @@ then
   exit 1
 fi
 
-# Check weither site url has been set
+# Check whether site url has been set
 if [[ $(redis_cli "EXISTS frontend:site:$sitename") == 0 ]]
 then
-    # Interatively set site url
+    # Interactively set site url
     if [[ "$url" == "" ]]
     then
       echo "No url found for site name $sitename"
