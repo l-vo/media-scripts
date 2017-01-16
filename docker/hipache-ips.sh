@@ -98,10 +98,13 @@ then
   exit 1
 fi
 
-# Check weither site url has been set
+url=""
+# Check whether site url has been set
 if [[ $(redis_cli "EXISTS frontend:site:$sitename") == 0 ]]
 then
-    # Interatively set site url
+  if [[ "$action" != "l" ]]
+  then
+    # Interactively set site url
     if [[ "$url" == "" ]]
     then
       echo "No url found for site name $sitename"
@@ -118,6 +121,7 @@ then
     # Add site url in database
     redis_cli "SET frontend:site:$sitename $url" >/dev/null
     redis_cli "RPUSH frontend:$url $sitename" >/dev/null
+  fi
 else
     url=$(redis_cli "GET frontend:site:$sitename")
 fi
@@ -155,7 +159,7 @@ then
     # Remove ip from database
     redis_cli "LREM frontend:$url 0 $cleanIP" >/dev/null
   fi
-elif [[ "$action" == "l" ]] # List ips for a site
+elif [[ "$action" == "l" ]] && [[ "$url" != "" ]] # List ips for a site
 then
   list_ip $url
   for wip in "${aips[@]}"
