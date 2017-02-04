@@ -130,7 +130,7 @@ fi
 if [[ "$action" == "a" ]] || [[ "$action" == "r" ]]
 then
   # Check ip validity
-  if ! [[ "$ip" =~ ^(https?://)?([0-9.]{7,15})$ ]]
+  if ! [[ "$ip" =~ ^(https?://)?([0-9.]{7,15}(:[0-9]{2,})?)$ ]]
   then
     echo "Incorrect ip address $ip for option -$action"
     exit 1
