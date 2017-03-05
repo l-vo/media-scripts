@@ -18,10 +18,10 @@ function help()
   echo "  source path where photos are stored"
   echo
   echo "target"
-  echo "  target path where randomly selected photos will be stored"
+  echo "  target path where photos will be copied"
   echo
   echo "-d startdate"
-  echo "  only photos with date greater or equal than startdate are retrieved"
+  echo "  only photos with date greater or equal than startdate are retrieved (format YYYY-MM-DD)"
   echo
   echo "-h"
   echo "  display this help"
