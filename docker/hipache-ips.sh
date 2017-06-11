@@ -50,11 +50,12 @@ function list_ip()
 {
     if [[ "$(uname)" == "Darwin" ]] # Mac OSX
     then
-      ips=$(redis_cli "LRANGE frontend:$1 1 -1" 1 | tr -cs "[[:print:]]" "^M")
-      IFS="^M" read -r -a aips <<< "$ips"
+      ips=$(redis_cli "LRANGE frontend:$1 1 -1" 1 )
     else
-      aips=$(redis_cli "LRANGE frontend:$1 1 -1" 1)
+      ips=$(redis_cli "LRANGE frontend:$1 1 -1" 1 | cat -v | tr -d "^M")
     fi
+    ips=$(echo "$ips" | tr -cs "[[:print:]]" "|")
+    IFS="|" read -r -a aips <<< "$ips"
 }
 
 declare -a aips
