@@ -98,7 +98,6 @@ then
   exit 1
 fi
 
-url=""
 # Check whether site url has been set
 if [[ $(redis_cli "EXISTS frontend:site:$sitename") == 0 ]]
 then
