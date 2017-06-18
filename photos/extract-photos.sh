@@ -80,7 +80,7 @@ then
 fi
 
 dateFilter=""
-if [ lastDate != "" ]; then
+if [ "$lastDate" != "" ]; then
     echo "Pick files with date >= $lastDate"
     dateFilter="\$CreateDate ge \"${lastDate//-/:}\""
     dateFilter=" -if '$dateFilter'"
