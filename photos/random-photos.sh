@@ -11,7 +11,7 @@ packetSize=50          # Size of the packets on which the draw will be done
 
 function usage()
 {
-    echo "usage: ${BASH_SOURCE[0]} [-c count] [-r ratio] [-n] [-h] source target"
+    echo "usage: ${BASH_SOURCE[0]} [-c count] [-r ratio] [-a] [-h] source target"
 }
 
 function help()
@@ -152,7 +152,7 @@ then
         echo "jpegtran must be installed"
         exit 1
     fi
-    echo "Autorotate is activated
+    echo "Autorotate is activated"
 fi
 
 shift $(($OPTIND - 1))
