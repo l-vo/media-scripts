@@ -152,7 +152,7 @@ then
         echo "jpegtran must be installed"
         exit 1
     fi
-    echo "Autorotate is activated
+    echo "Autorotate is activated"
 fi
 
 shift $(($OPTIND - 1))
