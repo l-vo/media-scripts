@@ -91,6 +91,21 @@ $ ./extract-photos.sh /path/to/my/library /path/where/photos/will/be/copied
 $ ./extract-photos.sh -d 2016-05-12 /path/to/my/library /path/where/photos/will/be/copied
 ```
 
+### extract-videos.sh
+
+This script allows to retrieve videos from a library and organize them in folders date.
+
+#### Requirements
+
+* exiftool (http://www.sno.phy.queensu.ca/~phil/exiftool/index.html)
+
+#### Usage
+
+* Organize videos by date into a target folder
+```
+$ ./extract-videos.sh /path/to/my/library /path/where/videos/will/be/copied
+```
+
 ### remove-duplicates.sh
 
 This script allows to remove duplicate files. A duplicate file is localized by a specific pattern before extension. These patterns are " ([0-9])" and "_[0-9]".  
