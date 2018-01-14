@@ -69,8 +69,8 @@ do
       continue # Another different file which has the same name
     fi
 
-    echo -n "Creating hardlink from $f to $f2 ... "
-    ln -f "$f" "$f2"
+    echo -n "Creating hardlink from $f2 to $f ... "
+    ln -f "$f2" "$f"
     echo "done"
   done
 done
