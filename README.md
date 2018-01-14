@@ -33,6 +33,16 @@ $ ./hipache-ips.sh -l myalias
 
 ## Photos directory
 
+### create-hardlinks.sh
+
+This script find duplicates in a directory and make them to use the same inode.  
+If originals and duplicates are in different folders, specify them as path1 and path2 for improving performance.
+
+#### Usage
+```
+$ ./create-hardlinks.sh path1 [path2]
+```
+
 ### extract-photos.sh
 
 This script allows to retrieve photos and videos from a library and organize them in folders date.
