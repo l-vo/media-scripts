@@ -33,6 +33,41 @@ $ ./hipache-ips.sh -l myalias
 
 ## Photos directory
 
+### extract-photos.sh
+
+This script allows to retrieve photos and videos from a library and organize them in folders date.
+
+#### Requirements
+
+* exiftool (http://www.sno.phy.queensu.ca/~phil/exiftool/index.html)
+
+#### Usage
+
+* Organize medias by date into a target folder
+```
+$ ./extract-photos.sh /path/to/my/library /path/where/photos/will/be/copied
+```
+
+* Organize all medias where date greater or equal than 12th May 2016
+```
+$ ./extract-photos.sh -d 2016-05-12 /path/to/my/library /path/where/photos/will/be/copied
+```
+
+### extract-videos.sh
+
+This script allows to retrieve videos from a library and organize them in folders date.
+
+#### Requirements
+
+* exiftool (http://www.sno.phy.queensu.ca/~phil/exiftool/index.html)
+
+#### Usage
+
+* Organize videos by date into a target folder
+```
+$ ./extract-videos.sh /path/to/my/library /path/where/videos/will/be/copied
+```
+
 ### random-photos.sh
 
 This script allows to retrieve random photos from a library. It gives a priority to later photos.
@@ -69,41 +104,6 @@ $ ./random-photos.sh -r 90 /path/to/my/library /path/where/photos/will/be/copied
 * Activate autorotate feature (needs jhead and jpegtran)
 ```
 $ ./random-photos.sh -a /path/to/my/library /path/where/photos/will/be/copied
-```
-
-### extract-photos.sh
-
-This script allows to retrieve photos and videos from a library and organize them in folders date.
-
-#### Requirements
-
-* exiftool (http://www.sno.phy.queensu.ca/~phil/exiftool/index.html)
-
-#### Usage
-
-* Organize medias by date into a target folder
-```
-$ ./extract-photos.sh /path/to/my/library /path/where/photos/will/be/copied
-```
-
-* Organize all medias where date greater or equal than 12th May 2016
-```
-$ ./extract-photos.sh -d 2016-05-12 /path/to/my/library /path/where/photos/will/be/copied
-```
-
-### extract-videos.sh
-
-This script allows to retrieve videos from a library and organize them in folders date.
-
-#### Requirements
-
-* exiftool (http://www.sno.phy.queensu.ca/~phil/exiftool/index.html)
-
-#### Usage
-
-* Organize videos by date into a target folder
-```
-$ ./extract-videos.sh /path/to/my/library /path/where/videos/will/be/copied
 ```
 
 ### remove-duplicates.sh
