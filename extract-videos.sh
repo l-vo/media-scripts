@@ -63,16 +63,24 @@ do
   fi
 
   dateFormated=${date//:/-}
+  year=${dateFormated:0:4}
 
-  dir="$target/$dateFormated"
-  if [[ ! -d  "$dir" ]]
+  yearDir="$target/$year"
+  if [[ ! -d  "$yearDir" ]]
   then
-    echo "Creating $dir"
-    mkdir "$dir"
+    echo "Creating $yearDir"
+    mkdir "$yearDir"
   fi
 
-  echo "Copying $file to $dir"
-  cp "$file" "$dir"
+  dayDir="$yearDir/$dateFormated"
+  if [[ ! -d  "$dayDir" ]]
+  then
+    echo "Creating $dayDir"
+    mkdir "$dayDir"
+  fi
+
+  echo "Copying $file to $dayDir"
+  cp "$file" "$dayDir"
 done
 
 exit 0
