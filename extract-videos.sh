@@ -40,20 +40,9 @@ fi
 source="$1"
 target="$2"
 
-if [[ ! -d "$source" ]]
-then
-    echo "Source directory ($source) doesn't exist"
-    exit 1
-fi
-
-if [[ ! -d "$target" ]]
-then
-    echo "Target directory ($target) doesn't exist"
-    exit 1
-fi
-
-for file in "$source"/*
-do
+function extract_video
+{
+  file="$0"
   date=$(exiftool "$file" | grep "Date/Time Original" | awk '{print $4}')
 
   if [[ "$date" == "" ]]
@@ -81,6 +70,9 @@ do
 
   echo "Copying $file to $dayDir"
   cp "$file" "$dayDir"
-done
+}
+
+export target && export -f extract_video
+find "$source" \( -iname *.mp4 -o -iname *.mts -o -iname *.m2ts \) -exec bash -c extract_video {} \;
 
 exit 0
