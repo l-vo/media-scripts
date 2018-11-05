@@ -67,12 +67,12 @@ function random_photos
     do
         if [[ "$noRandom" == "1" ]]
         then
-            # Random number between 0 and  currentPacketSize - 1
+            let "floor = 0"
+        else
+             # Random number between 0 and  currentPacketSize - 1
             let randMult=$RANDOM*${#packet[@]}
             randCount=32768     # $RANDOM produce a number between 0 and 32767
             let "floor = ($randMult - (${randMult} % ${randCount})) / ${randCount}"
-        else
-            let "floor = 0"
         fi
 
         let "i = $i + 1"
