@@ -48,6 +48,8 @@ $ ./extract-videos.sh /path/to/my/library /path/where/videos/will/be/copied
 ```
 
 ## random-photos.sh
+***/!\ This script is deprecated and not maintained anymore.  
+Use https://github.com/l-vo/photos-picker instead.***  
 
 This script allows to retrieve random photos from a library. It gives a priority to later photos.
 
