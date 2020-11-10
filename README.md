@@ -34,7 +34,7 @@ $ ./extract-photos.sh -d 2016-05-12 /path/to/my/library /path/where/photos/will/
 
 ## extract-videos.sh
 
-This script allows to retrieve videos from a library and organize them in folders date.
+This script allows to retrieve videos from a library and organize them into folders by date.
 
 ### Requirements
 
